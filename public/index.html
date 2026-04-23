@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>在线你画我猜 - AI 猜图</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🎨 在线你画我猜</h1>
+        <p>多人实时画画，AI 自动猜测你画的内容</p>
+      </header>
+
+      <section class="toolbar">
+        <input id="nameInput" type="text" maxlength="20" placeholder="输入你的昵称" />
+        <button id="setNameBtn">设置昵称</button>
+
+        <label>
+          颜色
+          <input id="colorPicker" type="color" value="#222222" />
+        </label>
+
+        <label>
+          粗细
+          <input id="lineWidth" type="range" min="1" max="20" value="4" />
+        </label>
+
+        <button id="clearBtn">清空画布</button>
+        <button id="guessBtn">让 AI 猜一下</button>
+      </section>
+
+      <main>
+        <div class="canvas-wrap">
+          <canvas id="board" width="960" height="540"></canvas>
+        </div>
+
+        <aside class="sidebar">
+          <div class="panel">
+            <h2>在线玩家</h2>
+            <ul id="players"></ul>
+          </div>
+
+          <div class="panel">
+            <h2>AI 猜测记录</h2>
+            <ul id="messages"></ul>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
